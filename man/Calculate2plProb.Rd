@@ -1,0 +1,35 @@
+\name{Calculate2plProb}
+\alias{Calculate2plProb}
+\title{Calculates the item success probability under the 2PL model.}
+\usage{
+Calculate2plProb(thetaValue, itemParameters, logistic = TRUE)
+}
+\arguments{
+  \item{thetaValue}{A numeric value or array for the theta
+  (ability) value(s) where the difference will be
+  calculated}
+
+  \item{itemParameters}{A matrix containing the numeric
+  values of item discriminations on the first column and
+  item difficulties on the second}
+
+  \item{logistic}{A logical value stating if the IRT model
+  will use the logistic or the normal metric.}
+}
+\value{
+probabilities A numeric matrix with the probabilities on
+each thetaValue for each item.
+}
+\description{
+Calculates the item success probability under the 2PL
+model.
+}
+\author{
+Victor H. Cervantes <vcervantes at icfes.gov.co>
+<vhcervantesb at unal.edu.co>
+}
+\references{
+de Ayala, R. J., (2009). The theory and practice of item
+response theory. New York: The Guildford Press
+}
+

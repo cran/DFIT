@@ -1,0 +1,44 @@
+\name{Ase2pl}
+\alias{Ase2pl}
+\title{Calculates the asymptotic covariance matrix of item parameter estimates under the 2pl model}
+\usage{
+Ase2pl(itemParameters, distribution = "norm",
+  distributionParameters = list(mean = 0, sd = 1), logistic = TRUE,
+  sampleSize = 1, subdivisions = 5000)
+}
+\arguments{
+  \item{itemParameters}{A matrix or vector containing the
+  item difficulties.}
+
+  \item{distribution}{A string character indicating the
+  generic name for the assumed distribution.}
+
+  \item{distributionParameters}{A list of extra parameters
+  for the distribution function.}
+
+  \item{logistic}{A logical indicating whether the logistic
+  or the normal metric should be used.}
+
+  \item{sampleSize}{A value indicating the sample size.}
+
+  \item{subdivisions}{A numeric value stating the maximum
+  number of subdivisions for adaptive quadrature.}
+}
+\value{
+ase A list containing the asymptotic matrices for each item
+}
+\description{
+Calculates the asymptotic covariance matrix of item
+parameter estimates under the 2pl model
+}
+\author{
+Victor H. Cervantes <vcervantes at icfes.gov.co>
+<vhcervantesb at unal.edu.co>
+}
+\references{
+Li, Y. & Lissitz, R. (2004). Applications of the
+analytically derived standard errors of Item Response
+Theory item parameter estimates. Journal of educational
+measurement, 41(2), 85--117.
+}
+

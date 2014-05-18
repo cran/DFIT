@@ -1,0 +1,65 @@
+\name{IrtMh}
+\alias{IrtMh}
+\title{Calculates the Mantel-Haenszel theoretical parameter when a dichotomous IRT model holds}
+\usage{
+IrtMh(itemParameters, irtModel = "2pl", focalDistribution = "norm",
+  referenceDistribution = "norm", focalDistrExtra = list(mean = 0, sd = 1),
+  referenceDistrExtra = list(mean = 0, sd = 1), groupRatio = 1,
+  logistic = TRUE, subdivisions = 5000)
+}
+\arguments{
+  \item{itemParameters}{A list containing the "focal" and
+  "reference" item parameters. Item parameters are assumed
+  to be on the same scale.}
+
+  \item{irtModel}{A string stating the irtModel used. May
+  be one of "1pl", "2pl", or "pl".}
+
+  \item{focalDistribution}{A string stating the
+  distribution assumed for the focal group.}
+
+  \item{focalDistrExtra}{A list of extra parameters for the
+  focal distribution function.}
+
+  \item{referenceDistribution}{A string stating the
+  distribution assumed for the reference group.}
+
+  \item{referenceDistrExtra}{A list of extra parameters for
+  the reference distribution function.}
+
+  \item{groupRatio}{A positive value indicating how many
+  members of the reference group are expected for each
+  member of the focal group.}
+
+  \item{logistic}{A logical indicating whether the logistic
+  or the normal metric should be used.}
+
+  \item{subdivisions}{A numeric value stating the maximum
+  number of subdivisions for adaptive quadrature.}
+}
+\value{
+mh A list containing the asymptotic matrices for each item
+}
+\description{
+Calculates the Mantel-Haenszel theoretical parameter when a
+dichotomous IRT model holds
+}
+\examples{
+data(dichotomousItemParameters)
+threePlMh <- IrtMh(itemParameters = dichotomousItemParameters,  irtModel = "3pl",
+                   focalDistribution = "norm", referenceDistribution = "norm",
+                   focalDistrExtra = list(mean = 0, sd = 1),
+                   referenceDistrExtra = list(mean = 0, sd = 1), groupRatio = 1,
+                   logistic = FALSE)
+}
+\author{
+Victor H. Cervantes <vcervantes at icfes.gov.co>
+<vhcervantesb at unal.edu.co>
+}
+\references{
+Roussos, L., Schnipke, D. & Pashley, P. (1999). A
+generalized formula for the Mantel-Haenszel Differential
+Item Functioning parameter. Journal of educational and
+behavioral statistics, 24(3), 293--322.
+}
+

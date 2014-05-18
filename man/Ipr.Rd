@@ -1,0 +1,51 @@
+\name{Ipr}
+\alias{Ipr}
+\title{Item parameter replication}
+\usage{
+Ipr(itemParameters, itemCovariances, nReplicates = 5000)
+}
+\arguments{
+  \item{itemParameters}{A list containing "focal" and
+  "reference" item parameters. Item parameters are assumed
+  to be on the same scale. Item parameters for each group
+  should me a matrix with nrow equal to the number of
+  items.}
+
+  \item{itemCovariances}{A list containing "focal" and
+  "reference" lists of matrices of covariance for item
+  estimates.}
+
+  \item{nReplicates}{A numeric value indicating the number
+  of replications to perform}
+}
+\value{
+itemParameters A list with item parameters for focal and
+reference groups
+}
+\description{
+Generates a sample of item parameters assuming multivariate
+normality of estimates
+}
+\examples{
+# # Not run
+# #
+# # data(dichotomousItemParameters)
+# # threePlAse <- list()
+# # threePlAse[['focal']] <- AseIrt(itemParameters = dichotomousItemParameters[['focal']],
+# #                                 logistic = TRUE, sampleSize = 500, irtModel = '3pl')
+# # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
+# #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
+# # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
+# #                   nReplicates = 1000)
+}
+\author{
+Victor H. Cervantes <vcervantes at icfes.gov.co>
+<vhcervantesb at unal.edu.co>
+}
+\references{
+Oshima, T., Raju, N. & Nanda, A. (2006). A new method for
+assessing the statistical significance in the Differential
+Functioning of Items and Tests (DFIT) framework. Journal of
+educational measurement, 43(1), 1--17.
+}
+

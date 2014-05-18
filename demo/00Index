@@ -1,0 +1,6 @@
+IPR            Shows the working of the funcions in IPR.R that relate to the Item Parameter Replication Monte Carlo procedure
+IRTSE          Shows the working of the functions in IRTSE.R that relate to asymptotic covariance of IRT item estimates
+MantelHaenszel Shows the working of the functions in MantelHaenszel.R that relate to the MH when an underlying IRT model is assumed to hold
+NCDIF          Shows the working of the functions in NCDIF.R that relate to the DFIT indices
+RajuAreas      Shows the working of the functions in RajuAreas that calculate Raju's Signed and Unsigned Area Measures for DIF
+powerExample   Shows how to calculate power for the NCDIF index with the functions in the DFIT package

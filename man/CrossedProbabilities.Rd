@@ -1,0 +1,41 @@
+\name{CrossedProbabilities}
+\alias{CrossedProbabilities}
+\title{Calculates the crossed probabilities associated with the numerator and denominator of the odds-ratio under dichotomous IRT models}
+\usage{
+CrossedProbabilities(thetaValue, itemParameters, logistic, irtModel = "3pl")
+}
+\arguments{
+  \item{thetaValue}{A numeric value or array for the theta
+  (ability) value(s) for which the odds will be calculated}
+
+  \item{itemParameters}{A list containing the "focal" and
+  "reference" item parameters. Item parameters are assumed
+  to be on the same scale.}
+
+  \item{irtModel}{A string stating the irtModel used. May
+  be one of "1pl", "2pl", or "3pl".}
+
+  \item{logistic}{A logical indicating whether the logistic
+  or the normal metric should be used.}
+}
+\value{
+out A list containing the crossed products for the 'num'
+the numerator, 'den' the denominator for the odds-ratio,
+and 'or' the odds-ratio
+}
+\description{
+Calculates the crossed probabilities associated with the
+numerator and denominator of the odds-ratio under
+dichotomous IRT models
+}
+\author{
+Victor H. Cervantes <vcervantes at icfes.gov.co>
+<vhcervantesb at unal.edu.co>
+}
+\references{
+Roussos, L., Schnipke, D. & Pashley, P. (1999). A
+generalized formula for the Mantel-Haenszel Differential
+Item Functioning parameter. Journal of educational and
+behavioral statistics, 24(3), 293--322.
+}
+

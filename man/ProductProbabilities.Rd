@@ -1,0 +1,33 @@
+\name{ProductProbabilities}
+\alias{ProductProbabilities}
+\title{Calculates the product of item response probabilities for dichotomous IRT models}
+\usage{
+ProductProbabilities(thetaValue, itemParameters, logistic, irtModel = "3pl")
+}
+\arguments{
+  \item{thetaValue}{A numeric value or array for the theta
+  (ability) value(s) for which the product will be
+  calculated}
+
+  \item{itemParameters}{A matrix containing the item
+  parameters.}
+
+  \item{irtModel}{A string stating the irtModel used. May
+  be one of "1pl", "2pl", or "3pl".}
+
+  \item{logistic}{A logical indicating whether the logistic
+  or the normal metric should be used.}
+}
+\value{
+pq A numeric matrix containing the crossed product on each
+thetaValue for each item.
+}
+\description{
+Calculates the product of item response probabilities for
+dichotomous IRT models
+}
+\author{
+Victor H. Cervantes <vcervantes at icfes.gov.co>
+<vhcervantesb at unal.edu.co>
+}
+
