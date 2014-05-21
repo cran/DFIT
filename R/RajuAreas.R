@@ -43,6 +43,7 @@
 #' uam3pl <- UnsignedArea(itemParameters = dichotomousItemParameters, irtModel = "3pl",
 #'                        subdivisions = 5000, logistic = TRUE)
 #'
+#' @references Cohen, A., Kim, S-H and Baker , F. (1993). Detection of differential item functioning in the Graded Response Moodel. Applied psychological measurement, 17(4), 335-350
 #' @references Raju, N. (1988). The area between two item characteristic cureves. Psychometricka, 53(4), 495--502.
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
@@ -167,6 +168,7 @@ UnsignedArea <- function (itemParameters, irtModel = "2pl", subdivisions = 5000,
 #' sam3pl <- SignedArea(itemParameters = dichotomousItemParameters, irtModel = "3pl",
 #'                      subdivisions = 5000, logistic = TRUE)
 #'
+#' @references Cohen, A., Kim, S-H and Baker , F. (1993). Detection of differential item functioning in the Graded Response Moodel. Applied psychological measurement, 17(4), 335-350
 #' @references Raju, N. (1988). The area between two item characteristic cureves. Psychometricka, 53(4), 495--502.
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>

@@ -1,8 +1,8 @@
 bibentry("Manual",
    title = "DFIT: An R package for the Differential Functioning of Items and Tests framework",
    author = person("Víctor H. Cervantes"),
-   organization = "Instituto Colombiano para la Evaluaci\'on de la Educaci\'on [ICFES]",
-   address      = "Bogot\'a, Colombia",
+   organization = "Instituto Colombiano para la Evaluacion de la Educacion [ICFES]",
+   address      = "Bogota, Colombia",
    year   = version$year,
 
    mheader = "To cite DFIT in publications use:"

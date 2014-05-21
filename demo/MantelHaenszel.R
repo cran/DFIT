@@ -57,23 +57,6 @@ threePlParameters <- dichotomousItemParameters
 ################################################################################
 # # Examples
 ################################################################################
-crossedProbabilitiesRasch <- CrossedProbabilities(thetaValue = exampleAbilities,
-                                                  itemParameters = raschParameters, logistic = TRUE,
-                                                  irtModel = "1pl")
-
-crossedProbabilities2plLogisticMetric <- CrossedProbabilities(thetaValue = exampleAbilities,
-                                                              itemParameters = twoPlParameters, logistic = TRUE,
-                                                              irtModel = "2pl")
-
-crossedProbabilities2plNormalMetric <- CrossedProbabilities(thetaValue = exampleAbilities,
-                                                            itemParameters = twoPlParameters, logistic = FALSE,
-                                                            irtModel = "2pl")
-
-crossedProbabilities3plNormalMetric <- CrossedProbabilities(thetaValue = exampleAbilities,
-                                                            itemParameters = threePlParameters, logistic = FALSE,
-                                                            irtModel = "3pl")
-
-
 
 mhRasch <- IrtMh(itemParameters = raschParameters, irtModel = "1pl", focalDistribution = "norm",
                  referenceDistribution = "norm", focalDistrExtra = list(mean = 0, sd = 1),

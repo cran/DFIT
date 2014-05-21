@@ -54,29 +54,6 @@ raschParameters <- lapply(dichotomousItemParameters, function (x) matrix(x[, 2],
 raschParameters <- as.list(unique(as.data.frame.list(raschParameters)))
 raschParameters <- lapply(raschParameters, function (x) matrix(x, ncol = 1))
 
-# # Probability functions
-probability1plScalarThetaSingleItem <- Calculate1plProb(thetaValue = exampleAbilitiesMedium[1],
-                                                        itemParameters = matrix(raschParameters$focal[1, ], nrow = 1),
-                                                        logistic = TRUE)
-
-probability1plVectorThetaSingleItem <- Calculate1plProb(thetaValue = exampleAbilitiesMedium[1:10],
-                                                        itemParameters = matrix(raschParameters$focal[1, ], nrow = 1),
-                                                        logistic = TRUE)
-
-probability1plScalarThetaSeveralItems <- Calculate1plProb(thetaValue = exampleAbilitiesMedium[1],
-                                                          itemParameters = raschParameters$focal,
-                                                          logistic = TRUE)
-
-probability1plVectorThetaSeveralItems <- Calculate1plProb(thetaValue = exampleAbilitiesMedium[1:10],
-                                                          itemParameters = raschParameters$focal,
-                                                          logistic = TRUE)
-
-# # Probability differences
-difference1pl <- CalculateItemDifferences(thetaValue = exampleAbilitiesMedium[1:10],
-                                          itemParameters = raschParameters,
-                                          irtModel = "1pl",
-                                          logistic = TRUE)
-
 # # NCDIF
 ncdifRaschTheoric      <- Ncdif(itemParameters = raschParameters, irtModel = "1pl", focalAbilities = NULL,
                                 focalDistribution = "norm", subdivisions = 5000, logistic = TRUE)
@@ -147,29 +124,6 @@ twoPlParameters <- unique(as.data.frame.list(twoPlParameters))
 twoPlParameters <- list(focal     = as.matrix(twoPlParameters[, grep("focal", names(twoPlParameters))]),
                         reference = as.matrix(twoPlParameters[, grep("reference", names(twoPlParameters))]))
 twoPlParameters <- lapply(twoPlParameters, function (x) matrix(x, ncol = 2))
-
-# # Probability functions
-probability2plScalarThetaSingleItem <- Calculate2plProb(thetaValue = exampleAbilitiesMedium[1],
-                                                        itemParameters = matrix(twoPlParameters$focal[1, ], nrow = 1),
-                                                        logistic = TRUE)
-
-probability2plVectorThetaSingleItem <- Calculate2plProb(thetaValue = exampleAbilitiesMedium[1:10],
-                                                        itemParameters = matrix(twoPlParameters$focal[1, ], nrow = 1),
-                                                        logistic = TRUE)
-
-probability2plScalarThetaSeveralItems <- Calculate2plProb(thetaValue = exampleAbilitiesMedium[1],
-                                                          itemParameters = twoPlParameters$focal,
-                                                          logistic = TRUE)
-
-probability2plVectorThetaSeveralItems <- Calculate2plProb(thetaValue = exampleAbilitiesMedium[1:10],
-                                                          itemParameters = twoPlParameters$focal,
-                                                          logistic = TRUE)
-
-# # Probability differences
-difference2pl <- CalculateItemDifferences(thetaValue = exampleAbilitiesMedium[1:10],
-                                          itemParameters = twoPlParameters,
-                                          irtModel = "2pl",
-                                          logistic = TRUE)
 
 # # NCDIF
 ncdif2plLogMetricTheoric      <- Ncdif(itemParameters = twoPlParameters, irtModel = "2pl", focalAbilities = NULL,
@@ -243,29 +197,6 @@ PlotNcdif(iiItem = 23, itemParameters = twoPlParameters, irtModel = "2pl", plotD
 # # Three parameter logistic model logistic metric
 #
 threePlParameters <- dichotomousItemParameters
-
-# # Probability functions
-probability3plScalarThetaSingleItem <- Calculate3plProb(thetaValue = exampleAbilitiesMedium[1],
-                                                        itemParameters = matrix(threePlParameters$focal[1, ], nrow = 1),
-                                                        logistic = TRUE)
-
-probability3plVectorThetaSingleItem <- Calculate3plProb(thetaValue = exampleAbilitiesMedium[1:10],
-                                                        itemParameters = matrix(threePlParameters$focal[1, ], nrow = 1),
-                                                        logistic = TRUE)
-
-probability3plScalarThetaSeveralItems <- Calculate3plProb(thetaValue = exampleAbilitiesMedium[1],
-                                                          itemParameters = threePlParameters$focal,
-                                                          logistic = TRUE)
-
-probability3plVectorThetaSeveralItems <- Calculate3plProb(thetaValue = exampleAbilitiesMedium[1:10],
-                                                          itemParameters = threePlParameters$focal,
-                                                          logistic = TRUE)
-
-# # Probability differences
-difference3pl <- CalculateItemDifferences(thetaValue = exampleAbilitiesMedium[1:10],
-                                          itemParameters = threePlParameters,
-                                          irtModel = "3pl",
-                                          logistic = TRUE)
 
 # # NCDIF
 
@@ -343,29 +274,6 @@ PlotNcdif(iiItem = 38, itemParameters = threePlParameters, irtModel = "3pl", plo
 
 # # GRM
 
-# # Probability functions
-probabilityGrmScalarThetaSingleItem <- CalculateGrmExp(thetaValue = exampleAbilitiesMedium[1],
-                                                        itemParameters = matrix(polytomousItemParameters$focal[1, ], nrow = 1),
-                                                        logistic = TRUE)
-
-probabilityGrmVectorThetaSingleItem <- CalculateGrmExp(thetaValue = exampleAbilitiesMedium[1:10],
-                                                        itemParameters = matrix(polytomousItemParameters$focal[1, ], nrow = 1),
-                                                        logistic = TRUE)
-
-probabilityGrmScalarThetaSeveralItems <- CalculateGrmExp(thetaValue = exampleAbilitiesMedium[1],
-                                                          itemParameters = polytomousItemParameters$focal,
-                                                          logistic = TRUE)
-
-probabilityGrmVectorThetaSeveralItems <- CalculateGrmExp(thetaValue = exampleAbilitiesMedium[1:10],
-                                                          itemParameters = polytomousItemParameters$focal,
-                                                          logistic = TRUE)
-
-# # Probability differences
-differenceGrm <- CalculateItemDifferences(thetaValue = exampleAbilitiesMedium[1:10],
-                                          itemParameters = polytomousItemParameters,
-                                          irtModel = "grm",
-                                          logistic = TRUE)
-
 # # GRM model logistic metric
 ncdifGrmLogMetricTheoric      <- Ncdif(itemParameters = polytomousItemParameters, irtModel = "grm", focalAbilities = NULL,
                                        focalDistribution = "norm", subdivisions = 5000, logistic = TRUE)
@@ -418,29 +326,6 @@ PlotNcdif(iiItem = 4, itemParameters = polytomousItemParameters, irtModel = "grm
 
 
 # # GPCM
-
-# # Probability functions
-probabilityGpcmScalarThetaSingleItem <- CalculatePcmExp(thetaValue = exampleAbilitiesMedium[1],
-                                                          itemParameters = matrix(polytomousItemParameters$focal[1, ], nrow = 1),
-                                                          logistic = TRUE)
-
-probabilityGpcmVectorThetaSingleItem <- CalculatePcmExp(thetaValue = exampleAbilitiesMedium[1:10],
-                                                          itemParameters = matrix(polytomousItemParameters$focal[1, ], nrow = 1),
-                                                          logistic = TRUE)
-
-probabilityGpcmScalarThetaSeveralItems <- CalculatePcmExp(thetaValue = exampleAbilitiesMedium[1],
-                                                            itemParameters = polytomousItemParameters$focal,
-                                                            logistic = TRUE)
-
-probabilityGpcmVectorThetaSeveralItems <- CalculatePcmExp(thetaValue = exampleAbilitiesMedium[1:10],
-                                                            itemParameters = polytomousItemParameters$focal,
-                                                            logistic = TRUE)
-
-# # Probability differences
-differenceGpcm <- CalculateItemDifferences(thetaValue = exampleAbilitiesMedium[1:10],
-                                           itemParameters = polytomousItemParameters,
-                                           irtModel = "pcm",
-                                           logistic = TRUE)
 
 # # GPCM model logistic metric
 ncdifGpcmLogMetricTheoric      <- Ncdif(itemParameters = polytomousItemParameters, irtModel = "pcm", focalAbilities = NULL,

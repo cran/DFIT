@@ -114,7 +114,7 @@ denProbabilities[ii, ] <-  (1L - (itemParameters[["reference"]][, 3] + ((1L - it
 #' Calculates the Mantel-Haenszel theoretical parameter when a dichotomous IRT model holds
 #'
 #' @param itemParameters        A list containing the "focal" and "reference" item parameters. Item parameters are assumed to be on the same scale.
-#' @param irtModel              A string stating the irtModel used. May be one of "1pl", "2pl", or "pl".
+#' @param irtModel              A string stating the irtModel used. May be one of "1pl", "2pl", or "3pl".
 #' @param focalDistribution     A string stating the distribution assumed for the focal group.
 #' @param focalDistrExtra       A list of extra parameters for the focal distribution function.
 #' @param referenceDistribution A string stating the distribution assumed for the reference group.
@@ -273,6 +273,7 @@ IrtMh <- function (itemParameters, irtModel = "2pl", focalDistribution = "norm",
 #' Obtains the ETS Delta measure for Mantel-Haneszel DIF statistic effect size.
 #'
 #' @param mh A numeric vector containing the MH statistic values
+#' @param logistic              A logical indicating whether the logistic or the normal metric should be used.
 #'
 #' @return delta A numeric vector containing the delta values
 #'
@@ -292,9 +293,15 @@ IrtMh <- function (itemParameters, irtModel = "2pl", focalDistribution = "norm",
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
 #'
-DeltaMhIrt <- function (mh) {
+DeltaMhIrt <- function (mh, logistic = FALSE) {
 
-  delta <- (-4 / 1.702) * log(mh)
+  if (logistic) {
+    kD <- 1
+  } else {
+    kD <- 1.702
+  } 
+
+  delta <- (-4 / kD) * log(mh)
 
   return(delta)
 }

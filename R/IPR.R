@@ -49,7 +49,7 @@
 #' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
 #' # #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
 #' # # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
-#' # #                   nReplicates = 1000) 
+#' # #                   nReplicates = 1000)
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
 #'
@@ -141,7 +141,7 @@ Ipr <- function (itemParameters, itemCovariances, nReplicates = 5000) {
 #' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
 #' # #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
 #' # # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
-#' # #                   nReplicates = 1000) 
+#' # #                   nReplicates = 1000)
 #' # # threePlNcdifIpr <- IprNcdif(itemParameterList = threePlIpr, irtModel = '3pl', logistic = TRUE)
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
@@ -156,7 +156,7 @@ IprNcdif <- function (itemParameterList, irtModel = "2pl", focalAbilities = NULL
 
   if (nrow(itemParameterList[[1]][['focal']]) == 1) {
     ncdif <- matrix(ncdif, nrow = 1)
-  } 
+  }
 
   return(ncdif)
 }
@@ -198,7 +198,7 @@ IprNcdif <- function (itemParameterList, irtModel = "2pl", focalAbilities = NULL
 #' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
 #' # #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
 #' # # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
-#' # #                   nReplicates = 1000) 
+#' # #                   nReplicates = 1000)
 #' # # threePlUamIpr <- IprUam(itemParameterList = threePlIpr, irtModel = '3pl', logistic = TRUE)
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
@@ -210,7 +210,7 @@ IprUam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, lo
 
   if (nrow(itemParameterList[[1]][['focal']]) == 1) {
     uam <- matrix(uam, nrow = 1)
-  } 
+  }
 
   return(uam)
 }
@@ -251,7 +251,7 @@ IprUam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, lo
 #' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
 #' # #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
 #' # # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
-#' # #                   nReplicates = 1000) 
+#' # #                   nReplicates = 1000)
 #' # # threePlSamIpr <- IprSam(itemParameterList = threePlIpr, irtModel = '3pl', logistic = TRUE)
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
@@ -263,7 +263,7 @@ IprSam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, lo
 
   if (nrow(itemParameterList[[1]][['focal']]) == 1) {
     sam <- matrix(sam, nrow = 1)
-  } 
+  }
 
   return(sam)
 }
@@ -311,7 +311,7 @@ IprSam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, lo
 #' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
 #' # #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
 #' # # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
-#' # #                   nReplicates = 1000) 
+#' # #                   nReplicates = 1000)
 #' # # threePlMhIpr <- IprMh(itemParameterList = threePlIpr, irtModel = '3pl', logistic = TRUE)
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
@@ -331,7 +331,7 @@ IprMh <- function (itemParameterList, irtModel = "2pl", focalDistribution = "nor
 
   if (nrow(itemParameterList[[1]][['focal']]) == 1) {
     mh <- matrix(mh, nrow = 1)
-  } 
+  }
 
   return(mh)
 }
@@ -357,8 +357,8 @@ IprMh <- function (itemParameterList, irtModel = "2pl", focalDistribution = "nor
 #' estimates. In the latter case, the user may choose to obtain the IPR simulated item parameters based only on the focal
 #' group's covariance matrix as proposed by Oshima et al. (2006), or both focal and reference groups' matrices as proposed
 #' by Cervantes (2012).
-#' 
-#' @param iprStatistics         A numeric matrix with the statistics obtained for the simulated IPR item parameters or a list containing all the elements of the output of this function. If not NULL they will be used for calculating the cut-off points. 
+#'
+#' @param iprStatistics         A numeric matrix with the statistics obtained for the simulated IPR item parameters or a list containing all the elements of the output of this function. If not NULL they will be used for calculating the cut-off points.
 #' @param quantiles             A numeric vector with the quantiles to be calculated.
 #' @param statistic             A character indicating which statistic will the cut-off point will be obtained for. If iprStatistics are provided, it is up to the user to correctly especify this string for it will only be informative; otherwise, it will be used to identify the statistic to be calculated. Should be one of "ncdif", "sam", "uam" or "mh".
 #' @param itemParameterList     A list where each element is a list containing "focal" and "reference" item Parameters. Item parameters are assumed to be on the same scale. Item parameters for each group should be a matrix with nrow equal to the number of items. Not used if iprStatistics are not NULL. If itemParameterList is not NULL, the statistic indicated with the argument "statistic" will be obtained for the set of itemParameterList, the corresponding arguments may be provided.
@@ -368,11 +368,14 @@ IprMh <- function (itemParameterList, irtModel = "2pl", focalDistribution = "nor
 #' @param focalDistrExtra       A list stating the extra parameters needed by the focal distribution function. Not used if iprStatistics are not NULL.
 #' @param referenceDistribution A string stating the distribution assumed for the reference group. Not used if iprStatistics are not NULL.
 #' @param referenceDistrExtra   A list stating the extra parameters needed by the reference distribution function. Not used if iprStatistics are not NULL.
-#' @param groupRatio            A positive value indicating how many members of the reference group are expected for each member of the focal group. Not used if iprStatistics are not NULL.
+#' @param groupRatio            A positive value indicating how many members of the reference group are expected for each member of the focal group. Only used if iprStatistics are NULL and statistic is "mh".
+#' @param focalSampleSize       A positive integer indicating the size of the focal group. Only used if itemCovariances is 'asymptotic'. Defaults to NULL.
+#' @param referenceSampleSize   A positive integer indicating the size of the reference group. Only used if itemCovariances is 'asymptotic'. Defaults to NULL.
 #' @param subdivisions          A numeric value indicating the number of subdivisions for numerical integration. Only used if focalAbilities and iprStatistics are NULL.
 #' @param logistic              A logical value stating if the IRT model will use the logistic or the normal metric. Defaults to using the logistic metric by fixing the D constant to 1. If FALSE the constant is set to 1.702 so that the normal metric is used.
 #' @param itemParameters        A list containing "focal" and "reference" item parameters. Item parameters are assumed to be on the same scale. Item parameters for each group should me a matrix with nrow equal to the number of items. Only used if both iprStatistics and itemParameterList are NULL. If used an itemParameterList from applying the IPR procedure will be simulated and the "statistic" will be calculated.
-#' @param itemCovariances       A list containing "focal" and "reference" lists of matrices of covariance for item estimates. Only used if iprStatistics and itemParameterList are NULL.
+#' @param itemCovariances       Either a list containing "focal" and "reference" lists of matrices of covariance for item estimates or the string "asymptotic". Defaults to NULL. Only used if iprStatistics and itemParameterList are NULL, in all other cases the itemCovariances element of the returned list is equal to what is provided as value for these arguments.
+#' @param nullGroup             If different from NULL and itemParameterList is NULL, a string equal to 'focal' or 'reference' to indicate which set of item parameters from itemParameters should be taken for the null hypothesis. If equal to NULL, itemParameterList will be generated using the given itemParameters for both groups.
 #' @param nReplicates           A numeric value indicating the number of replications to perform. Only used if iprStatistics and itemParameterList are NULL.
 #'
 #' @return cutoff A list containing: 'itemParameters', NULL if not provided as argument, 'itemCovariances', NULL if not provided as argument, 'itemParameterList', NULL unless calculated from 'itemParameters' or provided as argument, 'iprStatistics' the matrix of 'statistics' provided as argument or calculated from 'itemParameterList', 'statistic' for which the IPR approach is used according to the provided argument, 'quantiles' the vector or matrix of calculated quantiles for each item
@@ -391,11 +394,11 @@ IprMh <- function (itemParameterList, irtModel = "2pl", focalDistribution = "nor
 #' # # threePlAse <- list()
 #' # # threePlAse[['focal']] <- AseIrt(itemParameters = dichotomousItemParameters[['focal']],
 #' # #                                 logistic = TRUE, sampleSize = 500, irtModel = '3pl')
-#' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
+#' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['focal']],
 #' # #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
 #' # # threePlIprCutoff <- CutoffIpr(itemParameters = dichotomousItemParameters,
-#' # #                                itemCovariances = threePlAse,
-#' # #                                nReplicates = 1000, statistic = 'ncdif', irtModel = '3pl') 
+#' # #                               itemCovariances = threePlAse, nullGroup = 'focal',
+#' # #                               nReplicates = 1000, statistic = 'ncdif', irtModel = '3pl')
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
 #'
@@ -403,55 +406,80 @@ CutoffIpr <- function (iprStatistics = NULL, quantiles, statistic = "ncdif",
                        itemParameterList = NULL, irtModel = "2pl", focalAbilities = NULL,
                        focalDistribution = "norm", focalDistrExtra = list(mean = 0, sd = 1),
                        referenceDistribution = "norm", referenceDistrExtra = list(mean = 0, sd = 1), groupRatio = 1,
-                       subdivisions = 5000, logistic = TRUE,
-                       itemParameters = NULL, itemCovariances = NULL, nReplicates = 5000) {
+                       subdivisions = 5000, logistic = TRUE, itemParameters = NULL, itemCovariances = NULL,
+                       nullGroup = NULL, focalSampleSize = NULL, referenceSampleSize = NULL, nReplicates = 5000) {
 
   if (is.null(iprStatistics)) {
     if (is.null(itemParameterList)) {
       if (is.null(itemParameters) || is.null(itemCovariances)) {
         stop("If iprStatistics and itemParameterList are not provided, itemParameters and itemCovaiances must be provided")
+      }
+      nullParameters <- itemParameters
+      if (!is.null(nullGroup)) {
+        if (nullGroup == 'focal') {
+          nullParameters[['reference']] <- nullParameters[['focal']]
+        } else if (nullGroup == 'reference') {
+          nullParameters[['focal']] <- nullParameters[['reference']]
+        } else {
+          stop('nullGroup must be either NULL, "focal", or "reference"')
+        } 
       } 
-      itemParameterList <- Ipr(itemParameters = itemParameters, itemCovariances = itemCovariances,
+      if (is.character(itemCovariances) && itemCovariances == 'asymptotic') {
+        itemCovariances <- list()
+        itemCovariances[['focal']] <- AseIrt(itemParameters = nullParameters[['focal']],
+                                             distribution = focalDistribution,
+                                             distributionParameters = focalDistrExtra,
+                                             sampleSize = focalSampleSize,
+                                             irtModel = irtModel, logistic = logistic,
+                                             subdivisions = subdivisions)
+        itemCovariances[['reference']] <- AseIrt(itemParameters = nullParameters[['reference']],
+                                                 distribution = referenceDistribution,
+                                                 distributionParameters = referenceDistrExtra,
+                                                 sampleSize = referenceSampleSize,
+                                                 irtModel = irtModel, logistic = logistic,
+                                                 subdivisions = subdivisions)
+      } 
+      itemParameterList <- Ipr(itemParameters = nullParameters, itemCovariances = itemCovariances,
                                nReplicates = nReplicates)
 
       if (irtModel == "3pl") {
         itemParameterList <- Bound3PlIpr(itemParameterList)
-      } 
-    } 
-    
+      }
+    }
+
     if (statistic == 'ncdif') {
       iprStatistics <- IprNcdif(itemParameterList = itemParameterList, irtModel = irtModel,
                                 focalAbilities = focalAbilities, focalDistribution = focalDistribution,
                                 focalDistrExtra = focalDistrExtra,
                                 subdivisions = subdivisions, logistic = logistic)
-    } 
+    }
     if (statistic == 'sam') {
       iprStatistics <- IprSam(itemParameterList = itemParameterList, irtModel = irtModel,
                               subdivisions = subdivisions, logistic = logistic)
-    } 
+    }
     if (statistic == 'uam') {
       iprStatistics <- IprUam(itemParameterList = itemParameterList, irtModel = irtModel,
                               subdivisions = subdivisions, logistic = logistic)
-    } 
+    }
     if (statistic == 'mh') {
       iprStatistics <- IprMh(itemParameterList = itemParameterList, irtModel = irtModel,
                              focalDistribution = focalDistribution, focalDistrExtra = focalDistrExtra,
                              referenceDistribution = referenceDistribution, referenceDistrExtra = referenceDistrExtra,
-                             groupRatio = groupRatio, 
+                             groupRatio = groupRatio,
                              subdivisions = subdivisions, logistic = logistic)
-    } 
-  } 
+    }
+  }
 
   if (is.list(iprStatistics)) {
     if (!all(names(iprStatistics) %in% c("itemParameters", "itemCovariances", "itemParameterList", "iprStatistics",
                                         "statistic", "quantiles"))) {
       stop("'iprStatistics' is a list, but does not contain all elements of 'CutoffIpr' output")
-    } 
+    }
     iprStatistics$iprStatistics <-  apply(iprStatistics$iprStatistics, 1, quantile, quantiles)
     cutoff <- iprStatistics
   } else {
     percentiles <- apply(iprStatistics, 1, quantile, quantiles)
-  
+
     cutoff <- list(itemParameters = itemParameters, itemCovariances = itemCovariances,
                    itemParameterList = itemParameterList, iprStatistics = iprStatistics,
                    statistic = statistic, quantiles = percentiles)
@@ -479,6 +507,8 @@ CutoffIpr <- function (iprStatistics = NULL, quantiles, statistic = "ncdif",
 #'
 #' @return itemParameterList     A list where each element is a list containing "focal" and "reference" item Parameters where guessing parameters outside the [0, 1] interval are changed by 0 and 1.
 #'
+#' @export
+#'
 #' @examples
 #' # # Not run
 #' # #
@@ -489,7 +519,7 @@ CutoffIpr <- function (iprStatistics = NULL, quantiles, statistic = "ncdif",
 #' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
 #' # #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
 #' # # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
-#' # #                   nReplicates = 1000) 
+#' # #                   nReplicates = 1000)
 #' # # threePlIpr <- Bound3PlIpr(threePlIpr)
 #'
 #' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
@@ -511,7 +541,7 @@ Bound3PlIpr <- function (itemParameterList) {
 
   if (!all(nCol == 3)) {
     stop('Not all item parameter sets have three columns. They might not come from a 3PL model')
-  } 
+  }
 
   itemParameterList <- lapply(itemParameterList,
                               function (x) lapply(x, Change2Zero))
