@@ -10,4 +10,7 @@ DFIT 1.0-1
 
 * removed use of not exported functions in the demos
 
+DFIT 1.0-2
+==========
+
 * fixed CITATION
