@@ -35,7 +35,7 @@
 #'
 #' @return pq A numeric matrix containing the crossed product on each thetaValue for each item.
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 ProductProbabilities <- function(thetaValue, itemParameters, logistic, irtModel = "3pl") {
 
@@ -103,7 +103,7 @@ ProductProbabilities <- function(thetaValue, itemParameters, logistic, irtModel 
 #'
 #' @return ase A list containing the asymptotic matrices for each item
 #'
-#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117.
+#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117. doi:10.1111/j.1745-3984.2004.tb01109.x
 #'
 #' @export
 #'
@@ -117,7 +117,7 @@ ProductProbabilities <- function(thetaValue, itemParameters, logistic, irtModel 
 #' # # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
 #' # #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 AseIrt <- function (itemParameters, distribution = "norm", distributionParameters = list(mean = 0, sd = 1),
                     logistic = TRUE, sampleSize = 1, irtModel = "3pl", subdivisions = 5000) {
@@ -162,9 +162,9 @@ AseIrt <- function (itemParameters, distribution = "norm", distributionParameter
 #'
 #' @return ase A list containing the asymptotic variances for each item
 #'
-#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117.
+#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117. doi:10.1111/j.1745-3984.2004.tb01109.x
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Ase1pl <- function (itemParameters, distribution = "norm", distributionParameters = list(mean = 0, sd = 1),
                     logistic = TRUE, sampleSize = 1, subdivisions = 5000) {
@@ -221,9 +221,9 @@ Ase1pl <- function (itemParameters, distribution = "norm", distributionParameter
 #'
 #' @return ase A list containing the asymptotic matrices for each item
 #'
-#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117.
+#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117. doi:10.1111/j.1745-3984.2004.tb01109.x
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Ase2pl <- function (itemParameters, distribution = "norm", distributionParameters = list(mean = 0, sd = 1),
                     logistic = TRUE, sampleSize = 1, subdivisions = 5000) {
@@ -316,9 +316,9 @@ Ase2pl <- function (itemParameters, distribution = "norm", distributionParameter
 #'
 #' @return ase A list containing the asymptotic matrices for each item
 #'
-#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117.
+#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117. doi:10.1111/j.1745-3984.2004.tb01109.x
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Ase3pl <- function (itemParameters, distribution = "norm", distributionParameters = list(mean = 0, sd = 1),
                     logistic = TRUE, sampleSize = 1, subdivisions = 5000) {

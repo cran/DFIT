@@ -47,9 +47,9 @@
 #'                       focalAbilities = NULL, focalDistribution = "norm",
 #'                       subdivisions = 5000, logistic = TRUE)
 #'
-#' @references Raju, N. S., van der Linden, W. J., & Fleer, P. F. (1995). An IRT-based internal measure of test bias with applications for differential item functioning. Applied Psychological Measurement, 19, 353--368.
+#' @references Raju, N. S., van der Linden, W. J., & Fleer, P. F. (1995). IRT-based internal measures of differential functioning of items and tests. Applied Psychological Measurement, 19, 353--368. doi:10.1177/014662169501900405
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Ncdif <- function (itemParameters, irtModel = "2pl", focalAbilities = NULL, focalDistribution = "norm",
                    subdivisions = 5000, logistic = TRUE, focalDistrExtra = list(mean = 0, sd = 1)) {
@@ -121,9 +121,9 @@ Ncdif <- function (itemParameters, irtModel = "2pl", focalAbilities = NULL, foca
 #' # #                     focalAbilities = NULL, focalDistribution = "norm",
 #' # #                     subdivisions = 5000, logistic = TRUE)
 #'
-#' @references Raju, N. S., van der Linden, W. J., & Fleer, P. F. (1995). An IRT-based internal measure of test bias with applications for differential item functioning. Applied Psychological Measurement, 19, 353--368.
+#' @references Raju, N. S., van der Linden, W. J., & Fleer, P. F. (1995). IRT-based internal measures of differential functioning of items and tests. Applied Psychological Measurement, 19, 353--368. doi:10.1177/014662169501900405
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Cdif <- function (itemParameters, irtModel = "2pl", focalAbilities = NULL, focalDistribution = "norm",
                   subdivisions = 5000, logistic = TRUE, focalDistrExtra = list(mean = 0, sd = 1)) {
@@ -217,9 +217,9 @@ Cdif <- function (itemParameters, irtModel = "2pl", focalAbilities = NULL, focal
 #' # #                     subdivisions = 5000, logistic = TRUE)
 #' # # threePlDtf  <- Dtf(cdif = threePlCdif)
 #'
-#' @references Raju, N. S., van der Linden, W. J., & Fleer, P. F. (1995). An IRT-based internal measure of test bias with applications for differential item functioning. Applied Psychological Measurement, 19, 353--368.
+#' @references Raju, N. S., van der Linden, W. J., & Fleer, P. F. (1995). IRT-based internal measures of differential functioning of items and tests. Applied Psychological Measurement, 19, 353--368. doi:10.1177/014662169501900405
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Dtf <- function (cdif = NULL, itemParameters = NULL, irtModel = "2pl", focalAbilities = NULL, focalDistribution = "norm",
                  subdivisions = 5000, logistic = TRUE, focalDistrExtra = list(mean = 0, sd = 1)) {
@@ -260,7 +260,7 @@ Dtf <- function (cdif = NULL, itemParameters = NULL, irtModel = "2pl", focalAbil
 #'
 #' @return difference A numeric matrix with the differences on probabilities or on expected score for each item between focal and reference groups.
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 CalculateItemDifferences <- function (thetaValue, itemParameters, irtModel = "2pl", logistic = TRUE) {
 
@@ -314,7 +314,7 @@ CalculateItemDifferences <- function (thetaValue, itemParameters, irtModel = "2p
 #'
 #' @references de Ayala, R. J., (2009). The theory and practice of item response theory. New York: The Guildford Press
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Calculate1plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
 
@@ -360,7 +360,7 @@ Calculate1plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
 #'
 #' @references de Ayala, R. J., (2009). The theory and practice of item response theory. New York: The Guildford Press
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Calculate2plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
 
@@ -406,7 +406,7 @@ Calculate2plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
 #'
 #' @references de Ayala, R. J., (2009). The theory and practice of item response theory. New York: The Guildford Press
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Calculate3plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
 
@@ -459,9 +459,9 @@ Calculate3plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
 #' @return expectedScore A numeric matrix with the expected score on each thetaValue for each item.
 #'
 #' @references de Ayala, R. J., (2009). The theory and practice of item response theory. New York: The Guildford Press
-#' @references Oshima, T. & Morris, S. (2008). Raju's Differential Functioning of Items and Tests (DFIT). Educational Measurement: Issues and Practice, 27(3), 43--50.
+#' @references Oshima, T. & Morris, S. (2008). Raju's Differential Functioning of Items and Tests (DFIT). Educational Measurement: Issues and Practice, 27(3), 43--50. doi:10.1111/j.1745-3992.2008.00127.x
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 CalculateGrmExp <- function (thetaValue, itemParameters, logistic = TRUE) {
 
@@ -520,9 +520,9 @@ CalculateGrmExp <- function (thetaValue, itemParameters, logistic = TRUE) {
 #' @return expectedScore A numeric matrix with the expected score on each thetaValue for each item.
 #'
 #' @references de Ayala, R. J., (2009). The theory and practice of item response theory. New York: The Guildford Press
-#' @references Oshima, T. & Morris, S. (2008). Raju's Differential Functioning of Items and Tests (DFIT). Educational Measurement: Issues and Practice, 27(3), 43--50.
+#' @references Oshima, T. & Morris, S. (2008). Raju's Differential Functioning of Items and Tests (DFIT). Educational Measurement: Issues and Practice, 27(3), 43--50. doi:10.1111/j.1745-3992.2008.00127.x
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 CalculatePcmExp <- function (thetaValue, itemParameters, logistic = TRUE) {
 
@@ -620,7 +620,7 @@ if (getRversion() >= "2.15.1") utils::globalVariables(c("icc", "expected"))
 #' PlotNcdif(iiItem = 38, itemParameters = dichotomousItemParameters, irtModel = "3pl",
 #'           plotDensity = FALSE, main = "Item 38 Non uniform and different guessing DIF. 3PL")
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 PlotNcdif <- function (iiItem, itemParameters, irtModel = "2pl", logistic = TRUE,
 

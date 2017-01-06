@@ -34,9 +34,9 @@
 #'
 #' @return out A list containing the crossed products for the 'num' the numerator, 'den' the denominator for the odds-ratio, and 'or' the odds-ratio
 #'
-#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322.
+#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322. doi:10.3102/10769986024003293
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 CrossedProbabilities <- function(thetaValue, itemParameters, logistic, irtModel = "3pl") {
 
@@ -136,9 +136,9 @@ denProbabilities[ii, ] <-  (1L - (itemParameters[["reference"]][, 3] + ((1L - it
 #'                    referenceDistrExtra = list(mean = 0, sd = 1), groupRatio = 1,
 #'                    logistic = FALSE)
 #'
-#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322.
+#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322. doi:10.3102/10769986024003293
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 IrtMh <- function (itemParameters, irtModel = "2pl", focalDistribution = "norm", referenceDistribution = "norm",
                    focalDistrExtra = list(mean = 0, sd = 1), referenceDistrExtra = list(mean = 0, sd = 1),
@@ -291,7 +291,7 @@ IrtMh <- function (itemParameters, irtModel = "2pl", focalDistribution = "norm",
 #'
 #' @references Holland, P.W., and Thayer, D.T. (1988). Differential Item Performance and the Mantel-Haenszel Procedure. In H. Wainer and H.I. Braun (Eds.), Test Validity. Hillsdale, NJ: Erlbaum.
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 DeltaMhIrt <- function (mh, logistic = FALSE) {
 

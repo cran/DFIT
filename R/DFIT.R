@@ -19,15 +19,16 @@
 #' 
 #' @references de Ayala, R. J., (2009). The theory and practice of item response theory. New York: The Guildford Press
 #' @references Cervantes, V. H. (2012). On using the Item Parameter Replication (IPR) approach for power calculation of the noncompensatory differential item functioning (NCDIF) index (pp. 206-207). Proceedings of the V European Congress of Methodology. Santiago de Compostela, Spain: Universidade de Santiago de Compostela.
-#' @references Cohen, A., Kim, S-H and Baker , F. (1993). Detection of differential item functioning in the Graded Response Moodel. Applied psychological measurement, 17(4), 335-350
+#' @references Cervantes, V. H. (2017). DFIT: An R Package for Raju's Differential Functioning of Items and Tests Framework. Journal of Statistical Software, 76(5), 1-24. doi:10.18637/jss.v076.i05
+#' @references Cohen, A., Kim, S-H and Baker, F. (1993). Detection of differential item functioning in the Graded Response Moodel. Applied psychological measurement, 17(4), 335-350. doi:10.1177/014662169301700402
 #' @references Holland, P.W., and Thayer, D.T. (1988). Differential Item Performance and the Mantel-Haenszel Procedure. In H. Wainer and H.I. Braun (Eds.), Test Validity. Hillsdale, NJ: Erlbaum.
-#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117.
-#' @references Oshima, T. & Morris, S. (2008). Raju's Differential Functioning of Items and Tests (DFIT). Educational Measurement: Issues and Practice, 27(3), 43--50.
-#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17.
-#' @references Raju, N. (1988). The area between two item characteristic cureves. Psychometricka, 53(4), 495--502.
-#' @references Raju, N., Fortmann-Johnson, K., Kim, W., Morris, S., Nering, M. & Oshima, T. (2009). The item parameter replication method for detecting differential functioning in the polytomous DFIT framework. Applied psychological measurement, 33(2), 133--147.
-#' @references Raju, N. S., van der Linden, W. J., & Fleer, P. F. (1995). An IRT-based internal measure of test bias with applications for differential item functioning. Applied Psychological Measurement, 19, 353--368.
-#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322.
+#' @references Li, Y. & Lissitz, R. (2004). Applications of the analytically derived standard errors of Item Response Theory item parameter estimates. Journal of educational measurement, 41(2), 85--117. doi:10.1111/j.1745-3984.2004.tb01109.x
+#' @references Oshima, T. & Morris, S. (2008). Raju's Differential Functioning of Items and Tests (DFIT). Educational Measurement: Issues and Practice, 27(3), 43--50. doi:10.1111/j.1745-3992.2008.00127.x
+#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17. doi:10.1111/j.1745-3984.2006.00001.x
+#' @references Raju, N. (1988). The area between two item characteristic cureves. Psychometricka, 53(4), 495--502. doi:10.1007/bf02294403
+#' @references Raju, N., Fortmann-Johnson, K., Kim, W., Morris, S., Nering, M. & Oshima, T. (2009). The item parameter replication method for detecting differential functioning in the polytomous DFIT framework. Applied psychological measurement, 33(2), 133--147. doi:10.1177/0146621608319514
+#' @references Raju, N. S., van der Linden, W. J., & Fleer, P. F. (1995). IRT-based internal measures of differential functioning of items and tests. Applied Psychological Measurement, 19, 353--368. doi:10.1177/014662169501900405
+#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322. doi:10.3102/10769986024003293
 #' @references Wright, K. (2011). Improvements for Differential Funtioning of Items and Tests (DFIT): Investigating the addition of reporting an effect size measure and power (Unpublished doctoral dissertation). Georgia State University, USA.
 #'
 #' @import simex mvtnorm ggplot2

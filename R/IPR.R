@@ -33,7 +33,7 @@
 #'
 #' @return itemParameters A list with item parameters for focal and reference groups
 #'
-#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17.
+#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17. doi:10.1111/j.1745-3984.2006.00001.x
 #'
 #' @import simex mvtnorm
 #'
@@ -51,7 +51,7 @@
 #' # # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
 #' # #                   nReplicates = 1000)
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 Ipr <- function (itemParameters, itemCovariances, nReplicates = 5000) {
 
@@ -127,7 +127,7 @@ Ipr <- function (itemParameters, itemCovariances, nReplicates = 5000) {
 #'
 #' @return ncdif A numeric matrix with the NCDIF values for all the item parameter in each set of itemParameterList
 #'
-#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17.
+#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17. doi:10.1111/j.1745-3984.2006.00001.x
 #'
 #' @export
 #'
@@ -144,7 +144,7 @@ Ipr <- function (itemParameters, itemCovariances, nReplicates = 5000) {
 #' # #                   nReplicates = 1000)
 #' # # threePlNcdifIpr <- IprNcdif(itemParameterList = threePlIpr, irtModel = '3pl', logistic = TRUE)
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 IprNcdif <- function (itemParameterList, irtModel = "2pl", focalAbilities = NULL, focalDistribution = "norm",
                       subdivisions = 5000, logistic = TRUE, focalDistrExtra = list(mean = 0, sd = 1)) {
@@ -183,8 +183,8 @@ IprNcdif <- function (itemParameterList, irtModel = "2pl", focalAbilities = NULL
 #'
 #' @return uam A numeric matrix with the Unsigned Area Measure values for all the item parameter in each set of itemParameterList
 #'
-#' @references Raju, N. (1988). The area between two item characteristic cureves. Psychometricka, 53(4), 495--502.
-#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17.
+#' @references Raju, N. (1988). The area between two item characteristic cureves. Psychometricka, 53(4), 495--502. doi:10.1007/bf02294403
+#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17. doi:10.1111/j.1745-3984.2006.00001.x
 #'
 #' @export
 #'
@@ -201,7 +201,7 @@ IprNcdif <- function (itemParameterList, irtModel = "2pl", focalAbilities = NULL
 #' # #                   nReplicates = 1000)
 #' # # threePlUamIpr <- IprUam(itemParameterList = threePlIpr, irtModel = '3pl', logistic = TRUE)
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 IprUam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, logistic = TRUE) {
 
@@ -236,8 +236,8 @@ IprUam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, lo
 #'
 #' @return sam A numeric matrix with the Signed Area Measure values for all the item parameter in each set of itemParameterList
 #'
-#' @references Raju, N. (1988). The area between two item characteristic curves. Psychometricka, 53(4), 495--502.
-#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17.
+#' @references Raju, N. (1988). The area between two item characteristic cureves. Psychometricka, 53(4), 495--502. doi:10.1007/bf02294403
+#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17. doi:10.1111/j.1745-3984.2006.00001.x
 #'
 #' @export
 #'
@@ -254,7 +254,7 @@ IprUam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, lo
 #' # #                   nReplicates = 1000)
 #' # # threePlSamIpr <- IprSam(itemParameterList = threePlIpr, irtModel = '3pl', logistic = TRUE)
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 IprSam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, logistic = TRUE) {
 
@@ -296,8 +296,8 @@ IprSam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, lo
 #'
 #' @return mh A numeric matrix with the Mantel Haenszel values for all the item parameter in each set of itemParameterList
 #'
-#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17.
-#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322.
+#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17. doi:10.1111/j.1745-3984.2006.00001.x
+#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322. doi:10.3102/10769986024003293
 #'
 #' @export
 #'
@@ -314,7 +314,7 @@ IprSam <- function (itemParameterList, irtModel = "2pl", subdivisions = 5000, lo
 #' # #                   nReplicates = 1000)
 #' # # threePlMhIpr <- IprMh(itemParameterList = threePlIpr, irtModel = '3pl', logistic = TRUE)
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 IprMh <- function (itemParameterList, irtModel = "2pl", focalDistribution = "norm",
                    focalDistrExtra = list(mean = 0, sd = 1), referenceDistribution = "norm",
@@ -381,9 +381,10 @@ IprMh <- function (itemParameterList, irtModel = "2pl", focalDistribution = "nor
 #' @return cutoff A list containing: 'itemParameters', NULL if not provided as argument, 'itemCovariances', NULL if not provided as argument, 'itemParameterList', NULL unless calculated from 'itemParameters' or provided as argument, 'iprStatistics' the matrix of 'statistics' provided as argument or calculated from 'itemParameterList', 'statistic' for which the IPR approach is used according to the provided argument, 'quantiles' the vector or matrix of calculated quantiles for each item
 #'
 #' @references Cervantes, V. H. (2012). On using the Item Parameter Replication (IPR) approach for power calculation of the noncompensatory differential item functioning (NCDIF) index (pp. 206-207). Proceedings of the V European Congress of Methodology. Santiago de Compostela, Spain: Universidade de Santiago de Compostela.
-#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17.
-#' @references Raju, N. (1988). The area between two item characteristic curves. Psychometricka, 53(4), 495--502.
-#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322.
+#' @references Cervantes, V. H. (2017). DFIT: An R Package for Raju's Differential Functioning of Items and Tests Framework. Journal of Statistical Software, 76(5), 1-24. doi:10.18637/jss.v076.i05
+#' @references Oshima, T., Raju, N. & Nanda, A. (2006). A new method for assessing the statistical significance in the Differential Functioning of Items and Tests (DFIT) framework. Journal of educational measurement, 43(1), 1--17. doi:10.1111/j.1745-3984.2006.00001.x
+#' @references Raju, N. (1988). The area between two item characteristic cureves. Psychometricka, 53(4), 495--502. doi:10.1007/bf02294403
+#' @references Roussos, L., Schnipke, D. & Pashley, P. (1999). A generalized formula for the Mantel-Haenszel Differential Item Functioning parameter. Journal of educational and behavioral statistics, 24(3), 293--322. doi:10.3102/10769986024003293
 #'
 #' @export
 #'
@@ -400,7 +401,7 @@ IprMh <- function (itemParameterList, irtModel = "2pl", focalDistribution = "nor
 #' # #                               itemCovariances = threePlAse, nullGroup = 'focal',
 #' # #                               nReplicates = 1000, statistic = 'ncdif', irtModel = '3pl')
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
 CutoffIpr <- function (iprStatistics = NULL, quantiles, statistic = "ncdif",
                        itemParameterList = NULL, irtModel = "2pl", focalAbilities = NULL,
@@ -522,7 +523,7 @@ CutoffIpr <- function (iprStatistics = NULL, quantiles, statistic = "ncdif",
 #' # #                   nReplicates = 1000)
 #' # # threePlIpr <- Bound3PlIpr(threePlIpr)
 #'
-#' @author Victor H. Cervantes <vcervantes at icfes.gov.co> <vhcervantesb at unal.edu.co>
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 Bound3PlIpr <- function (itemParameterList) {
 
   Change2Zero <- function (x) {
