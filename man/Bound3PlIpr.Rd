@@ -2,7 +2,7 @@
 % Please edit documentation in R/IPR.R
 \name{Bound3PlIpr}
 \alias{Bound3PlIpr}
-\title{Takes item parameters frp, Ipr and forces guessing to lie between 0 and 1}
+\title{Takes item parameters from Ipr and forces guessing to lie between 0 and 1}
 \usage{
 Bound3PlIpr(itemParameterList)
 }
@@ -19,17 +19,35 @@ Makes all simulated guessing values from a 3PL model that are outside the [0, 1]
 # # Not run
 # #
 # # data(dichotomousItemParameters)
+# # threePlParameters <- dichotomousItemParameters
+# # isNot3Pl          <- ((dichotomousItemParameters[['focal']][, 3] == 0) |
+# #                      (dichotomousItemParameters[['reference']][, 3] == 0))
+# #
+# # threePlParameters[['focal']]          <- threePlParameters[['focal']][!isNot3Pl, ]
+# # threePlParameters[['reference']]      <- threePlParameters[['reference']][!isNot3Pl, ]
+# # threePlParameters[['focal']][, 3]     <- threePlParameters[['focal']][, 3] + 0.1
+# # threePlParameters[['reference']][, 3] <- threePlParameters[['reference']][, 3] + 0.1
+# # threePlParameters[['focal']][, 2]     <- threePlParameters[['focal']][, 2] + 1.5
+# # threePlParameters[['reference']][, 2] <- threePlParameters[['reference']][, 2] + 1.5
+# # threePlParameters[['focal']]          <- threePlParameters[['focal']][-c(12, 16, 28), ]
+# # threePlParameters[['reference']]      <- threePlParameters[['reference']][-c(12, 16, 28), ]
+# #
 # # threePlAse <- list()
-# # threePlAse[['focal']] <- AseIrt(itemParameters = dichotomousItemParameters[['focal']],
-# #                                 logistic = TRUE, sampleSize = 500, irtModel = '3pl')
-# # threePlAse[['reference']] <- AseIrt(itemParameters = dichotomousItemParameters[['reference']],
-# #                                     logistic = TRUE, sampleSize = 500, irtModel = '3pl')
-# # threePlIpr <- Ipr(itemParameters = dichotomousItemParameters, itemCovariances = threePlAse,
-# #                   nReplicates = 1000)
+# # threePlAse[["focal"]]     <- AseIrt(itemParameters = threePlParameters[["focal"]],
+# #                                     logistic = TRUE,
+# #                                     sampleSize = 10000,
+# #                                     irtModel = "3pl")
+# # threePlAse[["reference"]] <- AseIrt(itemParameters = threePlParameters[["reference"]],
+# #                                     logistic = TRUE,
+# #                                     sampleSize = 15000,
+# #                                     irtModel = "3pl")
+# #
+# # set.seed(41568)
+# # threePlIpr <- Ipr(itemParameters = threePlParameters, itemCovariances = threePlAse,
+# #                   nReplicates = 100)
 # # threePlIpr <- Bound3PlIpr(threePlIpr)
 
 }
 \author{
 Victor H. Cervantes <vhcervantesb at unal.edu.co>
 }
-

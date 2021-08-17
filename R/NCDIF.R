@@ -17,6 +17,7 @@
 # #   added to documentation
 # #   20140518: Updated PlotNcdif for latest ggplot2 compability
 # #   20140518: Changed ... option for indices functions
+# #   20210622: Examples adjusted
 ################################################################################
 
 
@@ -43,7 +44,21 @@
 #' @examples
 #'
 #' data(dichotomousItemParameters)
-#' threePlNcdif <- Ncdif(itemParameters = dichotomousItemParameters, irtModel = '3pl',
+#'
+#' threePlParameters <- dichotomousItemParameters
+#' isNot3Pl          <- ((dichotomousItemParameters[['focal']][, 3] == 0) |
+#'                       (dichotomousItemParameters[['reference']][, 3] == 0))
+#'
+#' threePlParameters[['focal']]          <- threePlParameters[['focal']][!isNot3Pl, ]
+#' threePlParameters[['reference']]      <- threePlParameters[['reference']][!isNot3Pl, ]
+#' threePlParameters[['focal']][, 3]     <- threePlParameters[['focal']][, 3] + 0.1
+#' threePlParameters[['reference']][, 3] <- threePlParameters[['reference']][, 3] + 0.1
+#' threePlParameters[['focal']][, 2]     <- threePlParameters[['focal']][, 2] + 1.5
+#' threePlParameters[['reference']][, 2] <- threePlParameters[['reference']][, 2] + 1.5
+#' threePlParameters[['focal']]          <- threePlParameters[['focal']][-c(12, 16, 28), ]
+#' threePlParameters[['reference']]      <- threePlParameters[['reference']][-c(12, 16, 28), ]
+#'
+#' threePlNcdif <- Ncdif(itemParameters = threePlParameters, irtModel = '3pl',
 #'                       focalAbilities = NULL, focalDistribution = "norm",
 #'                       subdivisions = 5000, logistic = TRUE)
 #'
@@ -115,8 +130,22 @@ Ncdif <- function (itemParameters, irtModel = "2pl", focalAbilities = NULL, foca
 #' @examples
 #'
 #' # # Not run
-#'
+#' # #
 #' # # data(dichotomousItemParameters)
+#' # #
+#' # # threePlParameters <- dichotomousItemParameters
+#' # # isNot3Pl          <- ((dichotomousItemParameters[['focal']][, 3] == 0) |
+#' # #                       (dichotomousItemParameters[['reference']][, 3] == 0))
+#' # #
+#' # # threePlParameters[['focal']]          <- threePlParameters[['focal']][!isNot3Pl, ]
+#' # # threePlParameters[['reference']]      <- threePlParameters[['reference']][!isNot3Pl, ]
+#' # # threePlParameters[['focal']][, 3]     <- threePlParameters[['focal']][, 3] + 0.1
+#' # # threePlParameters[['reference']][, 3] <- threePlParameters[['reference']][, 3] + 0.1
+#' # # threePlParameters[['focal']][, 2]     <- threePlParameters[['focal']][, 2] + 1.5
+#' # # threePlParameters[['reference']][, 2] <- threePlParameters[['reference']][, 2] + 1.5
+#' # # threePlParameters[['focal']]          <- threePlParameters[['focal']][-c(12, 16, 28), ]
+#' # # threePlParameters[['reference']]      <- threePlParameters[['reference']][-c(12, 16, 28), ]
+#' # #
 #' # # threePlCdif <- Cdif(itemParameters = dichotomousItemParameters, irtModel = '3pl',
 #' # #                     focalAbilities = NULL, focalDistribution = "norm",
 #' # #                     subdivisions = 5000, logistic = TRUE)
@@ -210,9 +239,23 @@ Cdif <- function (itemParameters, irtModel = "2pl", focalAbilities = NULL, focal
 #' @examples
 #'
 #' # # Not run
-#'
+#' # #
 #' # # data(dichotomousItemParameters)
-#' # # threePlCdif <- Cdif(itemParameters = dichotomousItemParameters, irtModel = '3pl',
+#' # #
+#' # # threePlParameters <- dichotomousItemParameters
+#' # # isNot3Pl          <- ((dichotomousItemParameters[['focal']][, 3] == 0) |
+#' # #                       (dichotomousItemParameters[['reference']][, 3] == 0))
+#' # #
+#' # # threePlParameters[['focal']]          <- threePlParameters[['focal']][!isNot3Pl, ]
+#' # # threePlParameters[['reference']]      <- threePlParameters[['reference']][!isNot3Pl, ]
+#' # # threePlParameters[['focal']][, 3]     <- threePlParameters[['focal']][, 3] + 0.1
+#' # # threePlParameters[['reference']][, 3] <- threePlParameters[['reference']][, 3] + 0.1
+#' # # threePlParameters[['focal']][, 2]     <- threePlParameters[['focal']][, 2] + 1.5
+#' # # threePlParameters[['reference']][, 2] <- threePlParameters[['reference']][, 2] + 1.5
+#' # # threePlParameters[['focal']]          <- threePlParameters[['focal']][-c(12, 16, 28), ]
+#' # # threePlParameters[['reference']]      <- threePlParameters[['reference']][-c(12, 16, 28), ]
+#' # #
+#' # # threePlCdif <- Cdif(itemParameters = threePlParameters, irtModel = '3pl',
 #' # #                     focalAbilities = NULL, focalDistribution = "norm",
 #' # #                     subdivisions = 5000, logistic = TRUE)
 #' # # threePlDtf  <- Dtf(cdif = threePlCdif)
@@ -275,6 +318,7 @@ CalculateItemDifferences <- function (thetaValue, itemParameters, irtModel = "2p
                           "1pl" = Calculate1plProb,
                           "2pl" = Calculate2plProb,
                           "3pl" = Calculate3plProb,
+                          "4pl" = Calculate4plProb,
                           "grm" = CalculateGrmExp,
                           "pcm" = CalculatePcmExp,
                           stop("irtModel not known or not implemented"))
@@ -296,6 +340,83 @@ CalculateItemDifferences <- function (thetaValue, itemParameters, irtModel = "2p
 
 
 
+
+
+
+
+################################################################################
+# #  Function CheckDiscriminations: Auxiliary function for Caculate Probabilities functions
+################################################################################
+
+#' Identifies items with nonpositive discrimination
+#'
+#' @param itemParameters A vector or column matrix containing the numeric values of item difficulties
+#'
+#' @return message A character string used to signal items with nonpsitive discriminations
+#'
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
+#'
+CheckDiscriminations <- function (itemParameters) {
+
+  if (any(itemParameters[, 1] <= 0)) {
+    badItems <- which(itemParameters[, 1] <= 0)
+    message <- paste0("Item ", badItems,
+                      " with discrimination ", itemParameters[badItems, 1], "\n")
+  } else {
+    message <- ""
+  }
+  return(message)
+}
+
+################################################################################
+# #  Function CheckGuessing: Auxiliary function for Caculate Probabilities functions
+################################################################################
+
+#' Identifies items with guessing outside [0, 1]
+#'
+#' @param itemParameters A vector or column matrix containing the numeric values of item difficulties
+#'
+#' @return message A character string used to signal items iadmissible guessing parameters
+#'
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
+#'
+CheckGuessings <- function (itemParameters) {
+
+  if (any((itemParameters[, 3] < 0) | (itemParameters[, 3] > 1))) {
+    badItems <- which((itemParameters[, 3] < 0) | (itemParameters[, 3] > 1))
+    message <- paste0("Item ", badItems,
+                      " with guessing ", itemParameters[badItems, 3], "\n")
+  } else {
+    message <- ""
+  }
+  return(message)
+}
+
+
+
+################################################################################
+# #  Function CheckUpper: Auxiliary function for Caculate Probabilities functions
+################################################################################
+
+#' Identifies items with upper asymptote outside [0, 1]
+#'
+#' @param itemParameters A vector or column matrix containing the numeric values of item difficulties
+#'
+#' @return message A character string used to signal items iadmissible guessing parameters
+#'
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
+#'
+CheckUpper <- function (itemParameters) {
+
+  if (any((itemParameters[, 4] < 0) | (itemParameters[, 4] > 1))) {
+    badItems <- which((itemParameters[, 4] < 0) | (itemParameters[, 4] > 1))
+    message <- paste0("Item ", badItems,
+                      " with upper asymptote ", itemParameters[badItems, 4], "\n")
+  } else {
+    message <- ""
+  }
+  return(message)
+}
 
 
 
@@ -371,7 +492,11 @@ Calculate2plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
   }
 
   if (any(itemParameters[, 1] <= 0)) {
-    stop("Discrimination parameters must be in the first column of itemParameters and must be all positive")
+    errorMessage <- paste("Discrimination parameters must be in the first column of itemParameters and must be all positive\n",
+                          "The following items have non positive discrimination:\n",
+                          CheckDiscriminations(itemParameters = itemParameters),
+                          "Note that this error may apply to a value drawn by the IPR algorithm and not the actual parameters.")
+    stop(errorMessage)
   }
 
   probabilities <- matrix(nrow = length(thetaValue), ncol = nrow(itemParameters))
@@ -417,11 +542,19 @@ Calculate3plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
   }
 
   if (any(itemParameters[, 1] <= 0)) {
-    stop("Discrimination parameters must be in the first column of itemParameters and must be all positive")
+    errorMessage <- paste("Discrimination parameters must be in the first column of itemParameters and must be all positive\n",
+                          "The following items have non positive discrimination:\n",
+                          CheckDiscriminations(itemParameters = itemParameters),
+                          "Note that this error may apply to a value drawn by the IPR algorithm and not the actual item parameters.")
+    stop(errorMessage)
   }
 
-  if (any((itemParameters[, 3] < 0) || (itemParameters[, 3] > 1))) {
-    stop("Guessing parameters must be in the third column of itemParameters and must be all in the interval [0, 1]")
+  if (any((itemParameters[, 3] < 0) | (itemParameters[, 3] > 1))) {
+    errorMessage <- paste("Guessing parameters must be in the third column of itemParameters and must be all in the interval [0, 1]\n",
+                          "The following items have inadmissible guessing parameters:\n",
+                          CheckGuessings(itemParameters = itemParameters),
+                          "Note that this error may apply to a value drawn by the IPR algorithm and not the actual item parameters.")
+    stop(errorMessage)
   }
 
   if (is.data.frame(itemParameters)) {
@@ -439,6 +572,71 @@ Calculate3plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
   return(probabilities)
 }
 
+
+
+
+################################################################################
+# #  Function Calculate4plProb: Calculate the item success probability under the 4PL model.
+################################################################################
+
+#' Calculates the item success probability under the 4PL model.
+#'
+#' @param thetaValue     A numeric value or array for the theta (ability) value(s) where the difference will be calculated
+#' @param itemParameters A matrix containing the numeric values of item discriminations on the first column, item difficulties on the second, item guessing parameters on the third, and item upper asymptote on the fourth
+#' @param logistic       A logical value stating if the IRT model will use the logistic or the normal metric.
+#'
+#' @return probabilities A numeric matrix with the probabilities on each thetaValue for each item.
+#'
+#' @references de Ayala, R. J., (2009). The theory and practice of item response theory. New York: The Guildford Press
+#'
+#' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
+#'
+Calculate4plProb <- function (thetaValue, itemParameters, logistic = TRUE) {
+
+  if (logistic) {
+    kD <- 1
+  } else {
+    kD <- 1.702
+  }
+
+  if (any(itemParameters[, 1] <= 0)) {
+    errorMessage <- paste("Discrimination parameters must be in the first column of itemParameters and must be all positive\n",
+                          "The following items have non positive discrimination:\n",
+                          CheckDiscriminations(itemParameters = itemParameters),
+                          "Note that this error may apply to a value drawn by the IPR algorithm and not the actual item parameters.")
+    stop(errorMessage)
+  }
+
+  if (any((itemParameters[, 3] < 0) | (itemParameters[, 3] > 1))) {
+    errorMessage <- paste("Guessing parameters must be in the third column of itemParameters and must be all in the interval [0, 1]\n",
+                          "The following items have inadmissible guessing parameters:\n",
+                          CheckGuessings(itemParameters = itemParameters),
+                          "Note that this error may apply to a value drawn by the IPR algorithm and not the actual item parameters.")
+    stop(errorMessage)
+  }
+
+  if (any((itemParameters[, 4] < 0) | (itemParameters[, 4] > 1))) {
+    errorMessage <- paste("Guessing parameters must be in the third column of itemParameters and must be all in the interval [0, 1]\n",
+                          "The following items have inadmissible guessing parameters:\n",
+                          CheckUpper(itemParameters = itemParameters),
+                          "Note that this error may apply to a value drawn by the IPR algorithm and not the actual item parameters.")
+    stop(errorMessage)
+  }
+
+  if (is.data.frame(itemParameters)) {
+    itemParameters <- as.matrix(itemParameters)
+  }
+
+  probabilities <- matrix(nrow = length(thetaValue), ncol = nrow(itemParameters))
+
+  for (ii in seq(nrow(probabilities))) {
+    probabilities[ii, ] <-  itemParameters[, 3] + ((itemParameters[, 4] - itemParameters[, 3]) * plogis(q = thetaValue[ii],
+                                                                                      location = as.numeric(t(itemParameters[, 2])),
+                                                                                      scale = 1 / (kD * itemParameters[, 1])))
+  }
+
+  return(probabilities)
+}
 
 
 
@@ -472,7 +670,11 @@ CalculateGrmExp <- function (thetaValue, itemParameters, logistic = TRUE) {
   }
 
   if (any(itemParameters[, 1] <= 0)) {
-    stop("Discrimination parameters must be in the first column of itemParameters and must be all positive")
+    errorMessage <- paste("Discrimination parameters must be in the first column of itemParameters and must be all positive\n",
+                          "The following items have non positive discrimination:\n",
+                          CheckDiscriminations(itemParameters = itemParameters),
+                          "Note that this error may apply to a value drawn by the IPR algorithm and not the actual item parameters.")
+    stop(errorMessage)
   }
 
   if (is.data.frame(itemParameters)) {
@@ -533,7 +735,11 @@ CalculatePcmExp <- function (thetaValue, itemParameters, logistic = TRUE) {
   }
 
   if (any(itemParameters[, 1] <= 0)) {
-    stop("Discrimination parameters must be in the first column of itemParameters and must be all positive")
+    errorMessage <- paste("Discrimination parameters must be in the first column of itemParameters and must be all positive\n",
+                          "The following items have non positive discrimination:\n",
+                          CheckDiscriminations(itemParameters = itemParameters),
+                          "Note that this error may apply to a value drawn by the IPR algorithm and not the actual item parameters.")
+    stop(errorMessage)
   }
 
   if (is.data.frame(itemParameters)) {
@@ -612,13 +818,27 @@ if (getRversion() >= "2.15.1") utils::globalVariables(c("icc", "expected"))
 #' @examples
 #'
 #' data(dichotomousItemParameters)
-#' # # Non Uniform - != guess DIF item close to focal distribution
-#' PlotNcdif(iiItem = 46, itemParameters = dichotomousItemParameters, irtModel = "3pl",
-#'           plotDensity = FALSE, main = "Item 46 Non uniform and different guessing DIF. 3PL")
 #'
-#' # # Non Uniform - != guess DIF item far from focal distribution
-#' PlotNcdif(iiItem = 38, itemParameters = dichotomousItemParameters, irtModel = "3pl",
-#'           plotDensity = FALSE, main = "Item 38 Non uniform and different guessing DIF. 3PL")
+#' threePlParameters <- dichotomousItemParameters
+#' isNot3Pl          <- ((dichotomousItemParameters[['focal']][, 3] == 0) |
+#'                       (dichotomousItemParameters[['reference']][, 3] == 0))
+#'
+#' threePlParameters[['focal']]          <- threePlParameters[['focal']][!isNot3Pl, ]
+#' threePlParameters[['reference']]      <- threePlParameters[['reference']][!isNot3Pl, ]
+#' threePlParameters[['focal']][, 3]     <- threePlParameters[['focal']][, 3] + 0.1
+#' threePlParameters[['reference']][, 3] <- threePlParameters[['reference']][, 3] + 0.1
+#' threePlParameters[['focal']][, 2]     <- threePlParameters[['focal']][, 2] + 1.5
+#' threePlParameters[['reference']][, 2] <- threePlParameters[['reference']][, 2] + 1.5
+#' threePlParameters[['focal']]          <- threePlParameters[['focal']][-c(12, 16, 28), ]
+#' threePlParameters[['reference']]      <- threePlParameters[['reference']][-c(12, 16, 28), ]
+#'
+#' # # Non Uniform - != guess DIF item
+#' PlotNcdif(iiItem = 22, itemParameters = threePlParameters, irtModel = "3pl",
+#'           plotDensity = FALSE, main = "Item 22 Non uniform and different guessing DIF. 3PL")
+#'
+#' # # Uniform - != guess DIF item
+#' PlotNcdif(iiItem = 15, itemParameters = threePlParameters, irtModel = "3pl",
+#'           plotDensity = FALSE, main = "Item 15 Uniform and different guessing DIF. 3PL")
 #'
 #' @author Victor H. Cervantes <vhcervantesb at unal.edu.co>
 #'
@@ -637,6 +857,7 @@ PlotNcdif <- function (iiItem, itemParameters, irtModel = "2pl", logistic = TRUE
                           "1pl" = Calculate1plProb,
                           "2pl" = Calculate2plProb,
                           "3pl" = Calculate3plProb,
+                          "4pl" = Calculate4plProb,
                           "grm" = CalculateGrmExp,
                           "pcm" = CalculatePcmExp,
                           stop("irtModel not known or not implemented"))
